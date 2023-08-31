@@ -3,3 +3,7 @@ pandas
 mysql-connector-python
 matplotlib
 seaborn
+sklearn
+scikit-learn
+sqlalchemy
+joblib
