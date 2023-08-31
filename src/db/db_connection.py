@@ -1,14 +1,7 @@
 import mysql.connector
+from src.db.db_config import db_config
 
 def establish_connection():
-    # Define the database configuration
-    db_config = {
-        "host": "localhost",
-        "user": "root",
-        "password": "Sql1password#",
-        "database": "bali_destination",
-    }
-
     # Establish a database connection
     connection = mysql.connector.connect(**db_config)
     return connection

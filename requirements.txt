@@ -1,3 +1,5 @@
 selenium
 pandas
 mysql-connector-python
+matplotlib
+seaborn
