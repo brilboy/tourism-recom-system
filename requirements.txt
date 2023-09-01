@@ -7,3 +7,5 @@ sklearn
 scikit-learn
 sqlalchemy
 joblib
+Flask 
+Flask-RESTful
