@@ -5,7 +5,9 @@ import joblib
 import mysql.connector
 from src.db.db_config import db_config
 
-app = Flask(__name__)
+application = Flask(__name__)
+
+app = application
 
 connection = mysql.connector.connect(**db_config)
 
