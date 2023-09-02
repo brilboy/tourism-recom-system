@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from sklearn.metrics.pairwise import linear_kernel
 import pandas as pd
 import joblib
+import os
 #import mysql.connector
 #from src.db.db_config import db_config
 
@@ -11,9 +12,14 @@ app = application
 
 #connection = mysql.connector.connect(**db_config)
 
+# Get the absolute path to the CSV file
+csv_file_path = os.path.join(os.getcwd(), 'src', 'destination_data.csv')
+
+# Read the CSV file
+df = pd.read_csv(csv_file_path)
+
 # Load the data and pickle files
 #df = pd.read_sql("SELECT * FROM destinations", con=connection)
-df = pd.read_csv(r'src\destination_data.csv')
 cosine_similarity_matrix = joblib.load(r'src\model\cosine_similarity.pkl')
 tfidf_matrix = joblib.load(r'src\model\tfidf_matrix.pkl')
 tfidf_vectorizer = joblib.load(r'src\model\tfidf_vectorizer.pkl')
