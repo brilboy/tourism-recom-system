@@ -12,17 +12,18 @@ app = application
 
 #connection = mysql.connector.connect(**db_config)
 
-# Get the absolute path to the CSV file
+# Get the absolute path
 csv_file_path = os.path.join(os.getcwd(), 'src', 'destination_data.csv')
-
-# Read the CSV file
-df = pd.read_csv(csv_file_path)
+cosine_file_path = os.path.join(os.getcwd(), 'src', 'model', 'cosine_similarity.pkl')
+matrix_file_path = os.path.join(os.getcwd(), 'src', 'model', 'tfidf_matrix.pkl')
+vectorizer_file_path = os.path.join(os.getcwd(), 'src', 'model', 'tfidf_vectorizer.pkl')
 
 # Load the data and pickle files
 #df = pd.read_sql("SELECT * FROM destinations", con=connection)
-cosine_similarity_matrix = joblib.load(r'src\model\cosine_similarity.pkl')
-tfidf_matrix = joblib.load(r'src\model\tfidf_matrix.pkl')
-tfidf_vectorizer = joblib.load(r'src\model\tfidf_vectorizer.pkl')
+df = pd.read_csv(csv_file_path)
+cosine_similarity_matrix = joblib.load(cosine_file_path)
+tfidf_matrix = joblib.load(matrix_file_path)
+tfidf_vectorizer = joblib.load(vectorizer_file_path)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
