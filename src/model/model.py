@@ -62,6 +62,9 @@ joblib.dump(tfidf_vectorizer, 'tfidf_vectorizer.pkl')
 joblib.dump(tfidf_matrix, 'tfidf_matrix.pkl')
 joblib.dump(cosine_sim, 'cosine_similarity.pkl')
 
+# Optionally, save the DataFrame if needed
+df.to_csv('destination_data.csv', index=False)
+
 # Interactive user input
 user_input = input("Enter an destination name: ")
 recommended_items = get_recommendations(user_input)

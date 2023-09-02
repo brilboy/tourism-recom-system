@@ -2,17 +2,18 @@ from flask import Flask, render_template, request
 from sklearn.metrics.pairwise import linear_kernel
 import pandas as pd
 import joblib
-import mysql.connector
-from src.db.db_config import db_config
+#import mysql.connector
+#from src.db.db_config import db_config
 
 application = Flask(__name__)
 
 app = application
 
-connection = mysql.connector.connect(**db_config)
+#connection = mysql.connector.connect(**db_config)
 
 # Load the data and pickle files
-df = pd.read_sql("SELECT * FROM destinations", con=connection)
+#df = pd.read_sql("SELECT * FROM destinations", con=connection)
+df = pd.read_csv(r'src\destination_data.csv')
 cosine_similarity_matrix = joblib.load(r'src\model\cosine_similarity.pkl')
 tfidf_matrix = joblib.load(r'src\model\tfidf_matrix.pkl')
 tfidf_vectorizer = joblib.load(r'src\model\tfidf_vectorizer.pkl')
