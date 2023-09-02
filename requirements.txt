@@ -1,3 +1,4 @@
+python==3.7
 selenium
 pandas
 mysql-connector-python
@@ -9,3 +10,4 @@ sqlalchemy
 joblib
 Flask 
 Flask-RESTful
+scipy
